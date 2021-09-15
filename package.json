@@ -1,8 +1,23 @@
 {
   "name": "asoul-notifications",
-  "displayName": "asoul-notifications",
-  "description": "A-Soul 提醒小助手",
+  "displayName": "A-SOUL 提醒小助手",
+  "description": "A-SOUL 成员全平台动态",
   "version": "0.0.1",
+  "publisher": "JiangYan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luob/vscode-asoul-notifications.git"
+  },
+  "homepage": "https://github.com/luob/vscode-asoul-notifications",
+  "keywords": [
+    "asoul",
+    "bilibili",
+    "嘉然",
+    "向晚",
+    "贝拉",
+    "乃琳",
+    "珈乐"
+  ],
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -103,6 +118,5 @@
   "dependencies": {
     "axios": "^0.21.4",
     "node-cron": "^3.0.0"
-  },
-  "publisher": "JiangYan"
+  }
 }
