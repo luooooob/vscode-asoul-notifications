@@ -1,0 +1,108 @@
+{
+  "name": "asoul-notifications",
+  "displayName": "asoul-notifications",
+  "description": "A-Soul 提醒小助手",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "A-SOUL 提醒小助手",
+      "properties": {
+        "asoulNotifications.asoulMembers": {
+          "type": "array",
+          "default": [
+            {
+              "nickname": "向晚",
+              "bid": 672346917,
+              "did": "MS4wLjABAAAAxCiIYlaaKaMz_J1QaIAmHGgc3bTerIpgTzZjm0na8w5t2KTPrCz4bm_5M5EMPy92"
+            },
+            {
+              "nickname": "贝拉",
+              "bid": 672353429,
+              "did": "MS4wLjABAAAA5ZrIrbgva_HMeHuNn64goOD2XYnk4ItSypgRHlbSh1c"
+            },
+            {
+              "nickname": "珈乐",
+              "bid": 351609538,
+              "did": "MS4wLjABAAAAxOXMMwlShWjp4DONMwfEEfloRYiC1rXwQ64eydoZ0ORPFVGysZEd4zMt8AjsTbyt"
+            },
+            {
+              "nickname": "嘉然",
+              "bid": 672328094,
+              "did": "MS4wLjABAAAAuZHC7vwqRhPzdeTb24HS7So91u9ucl9c8JjpOS2CPK-9Kg2D32Sj7-mZYvUCJCya"
+            },
+            {
+              "nickname": "乃琳",
+              "bid": 672342685,
+              "did": "MS4wLjABAAAAlpnJ0bXVDV6BNgbHUYVWnnIagRqeeZyNyXB84JXTqAS5tgGjAtw0ZZkv0KSHYyhP"
+            },
+            {
+              "nickname": "A-Soul_Official",
+              "bid": 703007996,
+              "did": "MS4wLjABAAAAflgvVQ5O1K4RfgUu3k0A2erAZSK7RsdiqPAvxcObn93x2vk4SKk1eUb6l_D4MX-n"
+            }
+          ],
+          "description": "成员信息"
+        },
+        "asoulNotifications.bilibiliLiveStatus.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "打开/关闭 Bilibili 正在直播提醒"
+        },
+        "asoulNotifications.bilibiliLiveStatus.cron": {
+          "type": "string",
+          "default": "5,20,35,50 * * * *",
+          "markdownDescription": "Bilibili 直播提醒服务的的执行时间表, 语法见 [crontab.guru](https://crontab.guru/)"
+        },
+        "asoulNotifications.bilibiliNewDynamics.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "打开/关闭新动态提醒"
+        },
+        "asoulNotifications.bilibiliNewDynamics.cron": {
+          "type": "string",
+          "default": "* * * * *",
+          "markdownDescription": "Bilibili 新动态提醒服务的的执行时间表, 语法见 [crontab.guru](https://crontab.guru/)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "coverage": "nyc npm run test"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "14.x",
+    "@types/node-cron": "^2.0.4",
+    "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.27.0",
+    "glob": "^7.1.7",
+    "mocha": "^8.4.0",
+    "typescript": "^4.3.2",
+    "vscode-test": "^1.5.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "node-cron": "^3.0.0"
+  },
+  "publisher": "JiangYan"
+}
