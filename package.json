@@ -2,7 +2,7 @@
   "name": "asoul-notifications",
   "displayName": "A-SOUL 提醒小助手",
   "description": "A-SOUL 成员新动态提醒, 直播状态提醒",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "publisher": "JiangYan",
   "icon": "logo.png",
   "repository": {
