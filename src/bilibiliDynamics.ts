@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import axios from "axios";
 import type { BilibiliDynamic, BilibiliDynamicsResponse, NotificationOptions } from "./types";
+import type { Command } from "vscode";
 
 export const fetchDynamics = (bid: number): Promise<BilibiliDynamicsResponse> => {
   const url = `https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/space_history?host_uid=${bid}`;
@@ -9,15 +10,16 @@ export const fetchDynamics = (bid: number): Promise<BilibiliDynamicsResponse> =>
     .then(res => res.data);
 };
 
-export const getNewDynamicsFromResponse = (res: BilibiliDynamicsResponse, expires: number): BilibiliDynamic[] => {
+export const getNewDynamicsFromResponse = (res: BilibiliDynamicsResponse, nickname: string, lastDynamicId: bigint, expires: number): BilibiliDynamic[] => {
   return res.data.cards
     .filter(card => card.desc.timestamp * 1000 > expires)
+    .filter(card => BigInt(card.desc.dynamic_id_str) > lastDynamicId)
     .map(card => {
       const typeValue = card.desc.type;
       const isVideo = typeValue === 8 || typeValue === 16;
       const isArticle = typeValue === 64;
       return {
-        name: card.desc.user_profile.info.uname,
+        name: nickname,
         timestamp: card.desc.timestamp,
         type: isVideo ? "video" : isArticle ? "article" : "others",
         dynamicId: BigInt(card.desc.dynamic_id_str),
@@ -41,10 +43,11 @@ export const createNewDynamicNotificationOptions = (dynamic: BilibiliDynamic): N
       default: return `${dynamic.name}有了新动态`;
     };
   };
-  const message = `阿伟你又在打代码，休息一下吧，${makeMessage()}`;
-  const items = [{
-    text: "让我看看",
-    action: () => vscode.env.openExternal(vscode.Uri.parse(dynamic.dynamicUrl))
+  const message = makeMessage();
+  const commands: Command[] = [{
+    title: "前往动态",
+    command: "vscode.open",
+    arguments: [vscode.Uri.parse(dynamic.dynamicUrl)]
   }];
-  return { message, items };
+  return [message, ...commands];
 };

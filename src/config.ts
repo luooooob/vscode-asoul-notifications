@@ -21,4 +21,4 @@ export const getBilibiliLiveStatusNotificationsEnabled = () => vscode.workspace
 
 export const getBilibiliLiveStatusCronExpression = () => vscode.workspace
   .getConfiguration(CONFIGURATION_NAMESPACE)
-  .get("bilibiliLiveStatus.cron", "3,18,33,48 * * * *");
+  .get("bilibiliLiveStatus.cron", "2 * * * *");

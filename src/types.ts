@@ -1,17 +1,14 @@
+import type { Command } from "vscode";
 
 export type Member = {
   nickname: string,
-  bid: number,
-  did: string
+  bilibiliId?: number,
+  bilibiliLiveroomId?: number,
+  douyinId?: string
 };
 
-export type NotificationOptions = {
-  message: string
-  items: {
-    text: string
-    action: () => void
-  }[]
-};
+export type VscodeCommand = Command;
+export type NotificationOptions = [string, ...VscodeCommand[]];
 
 export interface BilibiliDynamicsResponse {
   readonly data: {
@@ -52,7 +49,5 @@ export interface BilibiliLiveStatusResponse {
 }
 
 export type BilibiliLiveStatus = {
-  name: string
   isLive: boolean
-  liveroomUrl: string
 };

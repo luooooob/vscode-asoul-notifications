@@ -28,8 +28,8 @@ suite('BilibiliLiveStatus Functions Test Suite', () => {
     };
 
     const parseResult = getLiveStatusFromResponse(res);
-    assert.strictEqual(parseResult.name, "嘉然今天吃什么");
+    // assert.strictEqual(parseResult.name, "嘉然今天吃什么");
     assert.strictEqual(parseResult.isLive, true);
-    assert.strictEqual(parseResult.liveroomUrl, "https://live.bilibili.com/22637261");
+    // assert.strictEqual(parseResult.liveroomUrl, "https://live.bilibili.com/22637261");
   });
 });

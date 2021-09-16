@@ -18,14 +18,19 @@ export const getLiveStatusFromResponse = (res: BilibiliLiveStatusResponse): Bili
   const { liveStatus, url } = live_room;
   const isLive = liveStatus === 1;
   const liveroomUrl = url;
-  return { name, isLive, liveroomUrl };
+  return { isLive };
 };
 
-export const createLiveStatusNotificationOptions = (liveStatus: BilibiliLiveStatus): NotificationOptions => {
-  const message = `在？你为什么不看直播？`;
-  const items = [{
-    text: `${liveStatus.name}直播间`,
-    action: () => vscode.env.openExternal(vscode.Uri.parse(liveStatus.liveroomUrl))
-  }];
-  return { message, items };
+export const getLiveroomUrl = (id: number) => {
+  return `https://live.bilibili.com/${id}`;
 };
+
+// export const createLiveStatusNotificationOptions = (liveStatus: BilibiliLiveStatus): NotificationOptions => {
+//   const message = `在？你为什么不看直播？`;
+//   const commands: vscode.Command[] = [{
+//     title: `${liveStatus.name}直播间`,
+//     command: "vscode.open",
+//     arguments: [liveStatus.liveroomUrl]
+//   }];
+//   return [ message, ...commands];
+// };

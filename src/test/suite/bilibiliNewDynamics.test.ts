@@ -73,10 +73,10 @@ suite('BilibiliNewDynamics Functions Test Suite', () => {
       }
     };
 
-    const dynamics = getNewDynamicsFromResponse(res, 1600032300000);
+    const dynamics = getNewDynamicsFromResponse(res, "向晚今天吃什么", 0n, 1600032300000);
 
     assert.strictEqual(dynamics.length, 2);
-    assert.strictEqual(dynamics[0].name, "向晚大魔王");
+    assert.strictEqual(dynamics[0].name, "向晚今天吃什么");
     assert.strictEqual(dynamics[0].timestamp, 1600052300);
     assert.strictEqual(dynamics[0].dynamicId, 569453517462599026n);
     assert.strictEqual(dynamics[0].dynamicUrl, "https://t.bilibili.com/569453517462599026");
