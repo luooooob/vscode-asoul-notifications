@@ -18,6 +18,6 @@ jobs:
           node-version: 16.x
       - name: Run Publish
         if: success()
-        run: npm run deploy
+        run: npx vsce publish
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
