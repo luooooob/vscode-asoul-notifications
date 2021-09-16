@@ -1,7 +1,7 @@
 {
   "name": "asoul-notifications",
   "displayName": "A-SOUL 提醒小助手",
-  "description": "A-SOUL 成员全平台动态",
+  "description": "A-SOUL 成员新动态提醒, 直播状态提醒",
   "version": "0.2.5",
   "publisher": "JiangYan",
   "icon": "logo.png",
@@ -39,32 +39,38 @@
           "default": [
             {
               "nickname": "向晚",
-              "bid": 672346917,
-              "did": "MS4wLjABAAAAxCiIYlaaKaMz_J1QaIAmHGgc3bTerIpgTzZjm0na8w5t2KTPrCz4bm_5M5EMPy92"
+              "bilibiliId": 672346917,
+              "bilibiliLiveroomId": 22625025,
+              "douyinId": "MS4wLjABAAAAxCiIYlaaKaMz_J1QaIAmHGgc3bTerIpgTzZjm0na8w5t2KTPrCz4bm_5M5EMPy92"
             },
             {
               "nickname": "贝拉",
-              "bid": 672353429,
+              "bilibiliId": 672353429,
+              "bilibiliLiveroomId": 22632424,
               "did": "MS4wLjABAAAA5ZrIrbgva_HMeHuNn64goOD2XYnk4ItSypgRHlbSh1c"
             },
             {
               "nickname": "珈乐",
-              "bid": 351609538,
+              "bilibiliId": 351609538,
+              "bilibiliLiveroomId": 22634198,
               "did": "MS4wLjABAAAAxOXMMwlShWjp4DONMwfEEfloRYiC1rXwQ64eydoZ0ORPFVGysZEd4zMt8AjsTbyt"
             },
             {
               "nickname": "嘉然",
-              "bid": 672328094,
+              "bilibiliId": 672328094,
+              "bilibiliLiveroomId": 22637261,
               "did": "MS4wLjABAAAAuZHC7vwqRhPzdeTb24HS7So91u9ucl9c8JjpOS2CPK-9Kg2D32Sj7-mZYvUCJCya"
             },
             {
               "nickname": "乃琳",
-              "bid": 672342685,
+              "bilibiliId": 672342685,
+              "bilibiliLiveroomId": 22625027,
               "did": "MS4wLjABAAAAlpnJ0bXVDV6BNgbHUYVWnnIagRqeeZyNyXB84JXTqAS5tgGjAtw0ZZkv0KSHYyhP"
             },
             {
               "nickname": "A-Soul_Official",
-              "bid": 703007996,
+              "bilibiliId": 703007996,
+              "bilibiliLiveroomId": 22632157,
               "did": "MS4wLjABAAAAflgvVQ5O1K4RfgUu3k0A2erAZSK7RsdiqPAvxcObn93x2vk4SKk1eUb6l_D4MX-n"
             }
           ],
@@ -77,8 +83,8 @@
         },
         "asoulNotifications.bilibiliLiveStatus.cron": {
           "type": "string",
-          "default": "5,20,35,50 * * * *",
-          "markdownDescription": "Bilibili 直播提醒服务的的执行时间表, 语法见 [crontab.guru](https://crontab.guru/)"
+          "default": "* * * * *",
+          "markdownDescription": "Bilibili 直播提醒爬虫的执行时间表, 语法见 [crontab.guru](https://crontab.guru/), 默认每分钟一次"
         },
         "asoulNotifications.bilibiliNewDynamics.enabled": {
           "type": "boolean",
@@ -88,7 +94,7 @@
         "asoulNotifications.bilibiliNewDynamics.cron": {
           "type": "string",
           "default": "* * * * *",
-          "markdownDescription": "Bilibili 新动态提醒服务的的执行时间表, 语法见 [crontab.guru](https://crontab.guru/)"
+          "markdownDescription": "Bilibili 新动态提醒爬虫的的执行时间表, 语法见 [crontab.guru](https://crontab.guru/), 默认每分钟一次"
         }
       }
     }
