@@ -33,7 +33,7 @@ jobs:
 
   publish:
     name: Publish
-    need: test
+    needs: test
     steps:
       - name: Run Publish
         if: success() && startsWith(github.ref, 'refs/tags/releases/')
