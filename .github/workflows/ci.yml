@@ -1,17 +1,32 @@
-name: Publish
+name: CI
 
 on:
-  release:
-    types:
-    - created
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
 
 jobs:
-  publish:
-    name: Publish
-    runs-on: windows-latest
+  test:
+    name: Test
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
-      - name: Run Publish
-        if: success()
-        run: npm run deploy
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: npm install
+      - name: Run test on linux
+        if: runner.os == 'Linux'
+        run: xvfb-run -a npm test
+      - name: Run test on windows, macos
+        if: runner.os != 'Linux'
+        run: npm test
