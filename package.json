@@ -4,6 +4,7 @@
   "description": "A-SOUL 成员全平台动态",
   "version": "0.0.1",
   "publisher": "JiangYan",
+  "icon": "logo.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/luob/vscode-asoul-notifications.git"
