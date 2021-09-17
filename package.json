@@ -7,9 +7,8 @@
   "icon": "logo.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/luob/vscode-asoul-notifications.git"
+    "url": "https://github.com/luooooob/vscode-asoul-notifications.git"
   },
-  "homepage": "https://github.com/luob/vscode-asoul-notifications",
   "keywords": [
     "asoul",
     "bilibili",
@@ -40,37 +39,31 @@
             {
               "nickname": "向晚",
               "bilibiliId": 672346917,
-              "bilibiliLiveroomId": 22625025,
               "douyinId": "MS4wLjABAAAAxCiIYlaaKaMz_J1QaIAmHGgc3bTerIpgTzZjm0na8w5t2KTPrCz4bm_5M5EMPy92"
             },
             {
               "nickname": "贝拉",
               "bilibiliId": 672353429,
-              "bilibiliLiveroomId": 22632424,
               "did": "MS4wLjABAAAA5ZrIrbgva_HMeHuNn64goOD2XYnk4ItSypgRHlbSh1c"
             },
             {
               "nickname": "珈乐",
               "bilibiliId": 351609538,
-              "bilibiliLiveroomId": 22634198,
               "did": "MS4wLjABAAAAxOXMMwlShWjp4DONMwfEEfloRYiC1rXwQ64eydoZ0ORPFVGysZEd4zMt8AjsTbyt"
             },
             {
               "nickname": "嘉然",
               "bilibiliId": 672328094,
-              "bilibiliLiveroomId": 22637261,
               "did": "MS4wLjABAAAAuZHC7vwqRhPzdeTb24HS7So91u9ucl9c8JjpOS2CPK-9Kg2D32Sj7-mZYvUCJCya"
             },
             {
               "nickname": "乃琳",
               "bilibiliId": 672342685,
-              "bilibiliLiveroomId": 22625027,
               "did": "MS4wLjABAAAAlpnJ0bXVDV6BNgbHUYVWnnIagRqeeZyNyXB84JXTqAS5tgGjAtw0ZZkv0KSHYyhP"
             },
             {
               "nickname": "A-Soul_Official",
               "bilibiliId": 703007996,
-              "bilibiliLiveroomId": 22632157,
               "did": "MS4wLjABAAAAflgvVQ5O1K4RfgUu3k0A2erAZSK7RsdiqPAvxcObn93x2vk4SKk1eUb6l_D4MX-n"
             }
           ],
@@ -81,20 +74,10 @@
           "default": true,
           "description": "打开/关闭 Bilibili 正在直播提醒"
         },
-        "asoulNotifications.bilibiliLiveStatus.cron": {
-          "type": "string",
-          "default": "* * * * *",
-          "markdownDescription": "Bilibili 直播提醒爬虫的执行时间表, 语法见 [crontab.guru](https://crontab.guru/), 默认每分钟一次"
-        },
         "asoulNotifications.bilibiliNewDynamics.enabled": {
           "type": "boolean",
           "default": true,
           "description": "打开/关闭新动态提醒"
-        },
-        "asoulNotifications.bilibiliNewDynamics.cron": {
-          "type": "string",
-          "default": "* * * * *",
-          "markdownDescription": "Bilibili 新动态提醒爬虫的的执行时间表, 语法见 [crontab.guru](https://crontab.guru/), 默认每分钟一次"
         }
       }
     }

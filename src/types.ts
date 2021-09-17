@@ -1,17 +1,27 @@
 import type { Command } from "vscode";
 
-export type Member = {
-  nickname: string,
+export type NotificationOptions = {
+  message: string
+  commands: Command[]
+};
+
+export type RequstOptions = {
+  url: string
+};
+
+export type AsoulMember = {
+  nickname?: string,
   bilibiliId?: number,
-  bilibiliLiveroomId?: number,
   douyinId?: string
 };
 
-export type VscodeCommand = Command;
-export type NotificationOptions = [string, ...VscodeCommand[]];
+export type BilibiliUser = {
+  nickname?: string
+  bilibiliId: number
+};
 
 export interface BilibiliDynamicsResponse {
-  readonly data: {
+  data: {
     cards: {
       desc: {
         dynamic_id_str: string
@@ -28,18 +38,22 @@ export interface BilibiliDynamicsResponse {
   }
 }
 
-export type BilibiliDynamicType = "video" | "article" | "others";
-
 export type BilibiliDynamic = {
   name: string
   timestamp: number
-  type: BilibiliDynamicType
+  message: string
   dynamicId: bigint
   dynamicUrl: string
 };
 
+export type BilibiliFilterNewDynamicsOptions = {
+  lastDynamicId: bigint
+  now: number
+};
+
+
 export interface BilibiliLiveStatusResponse {
-  readonly data: {
+  data: {
     name: string
     live_room: {
       liveStatus: 0 | 1,
@@ -49,5 +63,10 @@ export interface BilibiliLiveStatusResponse {
 }
 
 export type BilibiliLiveStatus = {
-  isLive: boolean
-};
+  name: string
+} & ({
+  isLive: false
+} | {
+  isLive: true,
+  url: string
+});
