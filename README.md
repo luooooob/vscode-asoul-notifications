@@ -15,6 +15,7 @@
 ### 新动态提醒
 
 ![新动态提醒1](./images/new-dynamics-1.png)
+
 ![新动态提醒2](./images/new-dynamics-2.png)
 
 
@@ -23,6 +24,7 @@
 ![正在直播提醒1](./images/live-status-1.png)
 
 可以自定义昵称
+
 ![正在直播提醒2](./images/live-status-2.png)
 
 ### 新抖音短视频提醒
@@ -47,7 +49,7 @@
       "did": "MS4wLjABAAAA5ZrIrbgva_HMeHuNn64goOD2XYnk4ItSypgRHlbSh1c"
     },
 
-    ...
+    // ...
 
   ]
   ```
