@@ -51,14 +51,16 @@ export const activate = (context: vscode.ExtensionContext) => {
 		bilibiliLiveStatusNotificationsTask.start();
 	}
 
-	vscode.workspace.onDidChangeConfiguration(() => {
-		vscode.window
-			.showInformationMessage("A-SOUL 提醒小助手的配置需要在 VS Code 重启之后生效", "立即重启")
-			.then(selection => {
-				if (selection === "立即重启") {
-					vscode.commands.executeCommand("workbench.action.reloadWindow");
-				}
-			});
+	vscode.workspace.onDidChangeConfiguration((ds) => {
+		if (ds.affectsConfiguration("asoulNotifications")) {
+			vscode.window
+				.showInformationMessage("A-SOUL 提醒小助手的配置需要在 VS Code 重启之后生效", "立即重启")
+				.then(selection => {
+					if (selection === "立即重启") {
+						vscode.commands.executeCommand("workbench.action.reloadWindow");
+					}
+				});
+		}
 	});
 };
 
