@@ -1,10 +1,5 @@
 import type { Command } from "vscode";
 
-export type NotificationOptions = {
-  message: string
-  commands: Command[]
-};
-
 export type RequstOptions = {
   url: string
 };
@@ -46,12 +41,6 @@ export type BilibiliDynamic = {
   dynamicUrl: string
 };
 
-export type BilibiliFilterNewDynamicsOptions = {
-  lastDynamicId: bigint
-  now: number
-};
-
-
 export interface BilibiliLiveStatusResponse {
   data: {
     name: string
@@ -70,3 +59,24 @@ export type BilibiliLiveStatus = {
   isLive: true,
   url: string
 });
+
+export type DouyinUser = {
+  nickname?: string
+  douyinId: number
+};
+
+export interface DouyinVideosResponse {
+  aweme_list: {
+    aweme_id: string
+    desc: string
+    author: {
+      nickname: string
+    }
+  }[]
+};
+
+export type DouyinVideo = {
+  name: string
+  videoId: bigint
+  desc: string
+};
