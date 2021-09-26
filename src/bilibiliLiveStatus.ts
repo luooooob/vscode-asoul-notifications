@@ -3,12 +3,18 @@ import axios from "axios";
 import {
   BilibiliLiveStatusResponse,
   BilibiliLiveStatus,
-  NotificationOptions,
 } from "./types";
 
-export const makeLiveStatusRequstOptions = (bid: number) => ({
-  url: `https://api.bilibili.com/x/space/acc/info?mid=${bid}`
-});
+// export const makeLiveStatusRequstOptions = (bid: number) => ({
+//   url: `https://api.bilibili.com/x/space/acc/info?mid=${bid}`
+// });
+
+export const requestLiveStatus = async (bid: number): Promise<BilibiliLiveStatusResponse> => {
+  const url = `https://api.bilibili.com/x/space/acc/info?mid=${bid}`;
+  return axios
+    .get(url)
+    .then(res => res.data);
+};
 
 export const getLiveStatusFromResponse = (res: BilibiliLiveStatusResponse, nickname: string | undefined): BilibiliLiveStatus => {
   const name = nickname || res.data.name;
