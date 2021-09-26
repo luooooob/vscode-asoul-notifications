@@ -39,32 +39,32 @@
             {
               "nickname": "向晚",
               "bilibiliId": 672346917,
-              "douyinId": "MS4wLjABAAAAxCiIYlaaKaMz_J1QaIAmHGgc3bTerIpgTzZjm0na8w5t2KTPrCz4bm_5M5EMPy92"
+              "douyinId": "MS4wLjABAAAAxOXMMwlShWjp4DONMwfEEfloRYiC1rXwQ64eydoZ0ORPFVGysZEd4zMt8AjsTbyt"
             },
             {
               "nickname": "贝拉",
               "bilibiliId": 672353429,
-              "did": "MS4wLjABAAAA5ZrIrbgva_HMeHuNn64goOD2XYnk4ItSypgRHlbSh1c"
+              "douyinId": "MS4wLjABAAAAlpnJ0bXVDV6BNgbHUYVWnnIagRqeeZyNyXB84JXTqAS5tgGjAtw0ZZkv0KSHYyhP"
             },
             {
               "nickname": "珈乐",
               "bilibiliId": 351609538,
-              "did": "MS4wLjABAAAAxOXMMwlShWjp4DONMwfEEfloRYiC1rXwQ64eydoZ0ORPFVGysZEd4zMt8AjsTbyt"
+              "douyinId": "MS4wLjABAAAAuZHC7vwqRhPzdeTb24HS7So91u9ucl9c8JjpOS2CPK-9Kg2D32Sj7-mZYvUCJCya"
             },
             {
               "nickname": "嘉然",
               "bilibiliId": 672328094,
-              "did": "MS4wLjABAAAAuZHC7vwqRhPzdeTb24HS7So91u9ucl9c8JjpOS2CPK-9Kg2D32Sj7-mZYvUCJCya"
+              "douyinId": "MS4wLjABAAAA5ZrIrbgva_HMeHuNn64goOD2XYnk4ItSypgRHlbSh1c"
             },
             {
               "nickname": "乃琳",
               "bilibiliId": 672342685,
-              "did": "MS4wLjABAAAAlpnJ0bXVDV6BNgbHUYVWnnIagRqeeZyNyXB84JXTqAS5tgGjAtw0ZZkv0KSHYyhP"
+              "douyinId": "MS4wLjABAAAAxCiIYlaaKaMz_J1QaIAmHGgc3bTerIpgTzZjm0na8w5t2KTPrCz4bm_5M5EMPy92"
             },
             {
-              "nickname": "A-Soul_Official",
+              "nickname": "A-SOUL_Official",
               "bilibiliId": 703007996,
-              "did": "MS4wLjABAAAAflgvVQ5O1K4RfgUu3k0A2erAZSK7RsdiqPAvxcObn93x2vk4SKk1eUb6l_D4MX-n"
+              "douyinId": "MS4wLjABAAAAflgvVQ5O1K4RfgUu3k0A2erAZSK7RsdiqPAvxcObn93x2vk4SKk1eUb6l_D4MX-n"
             }
           ],
           "description": "成员信息"
@@ -78,6 +78,11 @@
           "type": "boolean",
           "default": true,
           "description": "打开/关闭新动态提醒"
+        },
+        "asoulNotifications.douyinVideos.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "打开/关闭抖音新视频提醒"
         }
       }
     }
