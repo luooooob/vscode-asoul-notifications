@@ -34,11 +34,9 @@ export interface BilibiliDynamicsResponse {
 }
 
 export type BilibiliDynamic = {
-  name: string
-  timestamp: number
+  dynamicId: string
   message: string
-  dynamicId: bigint
-  dynamicUrl: string
+  commands: Command[]
 };
 
 export interface BilibiliLiveStatusResponse {
@@ -62,7 +60,7 @@ export type BilibiliLiveStatus = {
 
 export type DouyinUser = {
   nickname?: string
-  douyinId: number
+  douyinId: string
 };
 
 export interface DouyinVideosResponse {
@@ -76,7 +74,7 @@ export interface DouyinVideosResponse {
 };
 
 export type DouyinVideo = {
-  name: string
-  videoId: bigint
-  desc: string
+  videoId: string
+  message: string
+  commands: Command[]
 };
