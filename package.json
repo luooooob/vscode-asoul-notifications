@@ -2,7 +2,7 @@
   "name": "asoul-notifications",
   "displayName": "A-SOUL 提醒小助手",
   "description": "A-SOUL 成员新动态提醒, 直播状态提醒",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "publisher": "JiangYan",
   "icon": "logo.png",
   "repository": {
@@ -74,7 +74,7 @@
           "default": true,
           "description": "打开/关闭 Bilibili 正在直播提醒"
         },
-        "asoulNotifications.bilibiliNewDynamics.enabled": {
+        "asoulNotifications.bilibiliDynamics.enabled": {
           "type": "boolean",
           "default": true,
           "description": "打开/关闭新动态提醒"

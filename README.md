@@ -12,25 +12,21 @@
 
 ## 功能
 
-### 新动态提醒
+- ### Bilibili 新动态提醒
 
-![新动态提醒1](./images/new-dynamics-1.png)
+![新动态提醒1](./images/notifications-1.png)
 
-![新动态提醒2](./images/new-dynamics-2.png)
+![新动态提醒2](./images/notifications-2.png)
 
+- ### 抖音新视频提醒
 
-### 正在直播提醒
+![新动态提醒2](./images/notifications-2.png)
+
+- ### 正在直播提醒(点击前往直播间)
 
 ![正在直播提醒1](./images/live-status-1.png)
 
-可以自定义昵称
-
 ![正在直播提醒2](./images/live-status-2.png)
-
-### 新抖音短视频提醒
-
-(别急, 正在新建文件夹)
-
 
 ## 设置
 
@@ -46,22 +42,28 @@
     {
       "nickname": "拉姐",
       "bilibiliId": 672353429,
-      "did": "MS4wLjABAAAA5ZrIrbgva_HMeHuNn64goOD2XYnk4ItSypgRHlbSh1c"
+      "douyinId": "MS4wLjABAAAA5ZrIrbgva_HMeHuNn64goOD2XYnk4ItSypgRHlbSh1c"
     },
 
     // ...
 
   ]
   ```
-  一个数组, 记录所有成员的 bilibili 和抖音的 id 以及自定义昵称. 可以自行添加更多项(不推荐添加太多，本插件采用轮询 b 站公开接口的方式工作, 如果任务太多可能会被叔叔 gank). 三个键都是可选的, 如果没有`nickname`, 会默认使用该平台的 id, 如果没有平台的 `id`, 则没有该平台的通知
+
+  一个数组, 记录所有成员的 bilibili 和抖音的 id 以及自定义昵称. 可以自行添加更多项(不推荐添加太多，本插件采用轮询 Bilibili 和抖音公开接口的方式工作, 如果任务太多可能会被gank). 三个键都是可选的, 如果没有`bilibiliId` 或 `douyinId`, 则没有该平台的相关功能, 如果没有`nickname`, 会默认使用该平台的昵称.
 
 - `asoulNotifications.bilibiliLiveStatus.enabled`
 
   打开/关闭正在直播提醒
 
-- `asoulNotifications.bilibiliNewDynamics.enabled`
+- `asoulNotifications.bilibiliDynamics.enabled`
 
   打开/关闭新动态提醒
+- `asoulNotifications.douyinVideos.enabled`
+
+  打开/关闭抖音新视频提醒
+
+注意: 所有选项的更改都需要重启 VS Code 才能生效.
 
 ## 反馈
 
