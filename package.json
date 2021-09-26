@@ -2,7 +2,7 @@
   "name": "asoul-notifications",
   "displayName": "A-SOUL 提醒小助手",
   "description": "A-SOUL 成员新动态提醒, 直播状态提醒",
-  "version": "0.4.2",
+  "version": "0.5.1",
   "publisher": "JiangYan",
   "icon": "logo.png",
   "repository": {
@@ -88,12 +88,13 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "watch": "npm run esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./",
+    "pretest": "npm run test-compile && npm run lint",
+    "test": "node ./out/test/runTest.js",
+    "vscode:prepublish": "npm run esbuild-base -- --minify"
   },
   "devDependencies": {
     "@types/glob": "^7.1.3",
@@ -103,6 +104,7 @@
     "@types/vscode": "^1.60.0",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
+    "esbuild": "^0.13.2",
     "eslint": "^7.27.0",
     "glob": "^7.1.7",
     "mocha": "^8.4.0",
