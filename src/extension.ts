@@ -11,7 +11,7 @@ export const activate = (context: vscode.ExtensionContext) => {
 	const configuration = vscode.workspace.getConfiguration("asoulNotifications");
 	const asoulMembers = configuration.get<AsoulMember[]>("asoulMembers", []);
 
-	const bilibiliDynamicsNotificationsEnabled = configuration.get("bilibiliNewDynamics.enabled", false);
+	const bilibiliDynamicsNotificationsEnabled = configuration.get("bilibiliDynamics.enabled", false);
 	const bilibiliLiveStatusNotificationsEnabled = configuration.get("bilibiliLiveStatus.enabled", false);
 	const douyinVideosNotificationsEnabled = configuration.get("douyinVideos.enabled", false);
 
