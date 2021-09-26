@@ -14,13 +14,13 @@
 
 - ### Bilibili 新动态提醒
 
-![新动态提醒1](./images/notifications-1.png)
+![Bilibili 新动态提醒1](./images/notifications-1.png)
 
-![新动态提醒2](./images/notifications-2.png)
+![Bilibili 新动态提醒2](./images/notifications-2.png)
 
 - ### 抖音新视频提醒
 
-![新动态提醒2](./images/notifications-2.png)
+![抖音新视频提醒](./images/notifications-3.png)
 
 - ### 正在直播提醒(点击前往直播间)
 
