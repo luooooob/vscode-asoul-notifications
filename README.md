@@ -68,3 +68,7 @@
 ## 反馈
 
 插件正在开发中, 可能会出现不稳定的现象, 任何任何 bug 或建议可以通过 [issue](https://github.com/luooooob/vscode-asoul-notifications/issues/new) 反馈, 关于本插件的功能有更好的想法和建议也欢迎告知
+
+## 友情链接
+
+[A-SOUL 鼓励师](https://marketplace.visualstudio.com/items?itemName=AS042971.asoul)
