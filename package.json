@@ -111,7 +111,7 @@
     "vscode-test": "^1.5.2"
   },
   "dependencies": {
-    "axios": "^0.21.4",
+    "axios": "^0.22.0",
     "node-cron": "^3.0.0"
   }
 }
