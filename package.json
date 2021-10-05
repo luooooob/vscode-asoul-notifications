@@ -81,8 +81,8 @@
         },
         "asoulNotifications.douyinVideos.enabled": {
           "type": "boolean",
-          "default": true,
-          "description": "打开/关闭抖音新视频提醒"
+          "default": false,
+          "description": "打开/关闭抖音新视频提醒(测试中)"
         }
       }
     }
