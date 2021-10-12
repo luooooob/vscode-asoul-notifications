@@ -71,7 +71,7 @@
 
 ## 友情链接
 
-[windows 10/11 版提醒小助手](https://github.com/skykeyjoker/A-Soul-Notification)
+[Windows 10/11 版提醒小助手](https://github.com/skykeyjoker/A-Soul-Notification)
 
 [VSCode插件：A-SOUL 鼓励师](https://marketplace.visualstudio.com/items?itemName=AS042971.asoul)
 
