@@ -71,4 +71,8 @@
 
 ## 友情链接
 
-[A-SOUL 鼓励师](https://marketplace.visualstudio.com/items?itemName=AS042971.asoul)
+[windows 10/11 版提醒小助手](https://github.com/skykeyjoker/A-Soul-Notification)
+
+[VSCode插件：A-SOUL 鼓励师](https://marketplace.visualstudio.com/items?itemName=AS042971.asoul)
+
+[Typora主题：Typora-theme-jiaran](https://github.com/q19980722/Typora-theme-jiaran)
