@@ -1,21 +1,21 @@
-import type { Command } from "vscode";
+import type { Command } from "vscode"
 
 export type RequstOptions = {
   url: string
-};
+}
 
 export type AsoulMember = {
   nickname?: string,
   bilibiliId?: number,
   douyinId?: string
-};
+}
 
 export type BilibiliUser = {
   nickname?: string
   bilibiliId: number
-};
+}
 
-export interface BilibiliDynamicsResponse {
+export type BilibiliDynamicsResponse = {
   data: {
     cards: {
       desc: {
@@ -37,9 +37,9 @@ export type BilibiliDynamic = {
   dynamicId: string
   message: string
   commands: Command[]
-};
+}
 
-export interface BilibiliLiveStatusResponse {
+export type BilibiliLiveStatusResponse = {
   data: {
     name: string
     live_room: {
@@ -56,14 +56,14 @@ export type BilibiliLiveStatus = {
 } | {
   isLive: true,
   url: string
-});
+})
 
 export type DouyinUser = {
   nickname?: string
   douyinId: string
-};
+}
 
-export interface DouyinVideosResponse {
+export type DouyinVideosResponse = {
   aweme_list: {
     aweme_id: string
     desc: string
@@ -71,10 +71,10 @@ export interface DouyinVideosResponse {
       nickname: string
     }
   }[]
-};
+}
 
 export type DouyinVideo = {
   videoId: string
   message: string
   commands: Command[]
-};
+}

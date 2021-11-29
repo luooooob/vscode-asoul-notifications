@@ -1,47 +1,45 @@
-import * as vscode from "vscode";
-import axios from "axios";
-import {
+import * as vscode from "vscode"
+import axios from "axios"
+import type {
   BilibiliLiveStatusResponse,
-  BilibiliLiveStatus,
-} from "./types";
+  BilibiliLiveStatus
+} from "./types"
 
 // export const makeLiveStatusRequstOptions = (bid: number) => ({
 //   url: `https://api.bilibili.com/x/space/acc/info?mid=${bid}`
 // });
 
 export const requestLiveStatus = async (bid: number): Promise<BilibiliLiveStatusResponse> => {
-  const url = `https://api.bilibili.com/x/space/acc/info?mid=${bid}`;
+  const url = `https://api.bilibili.com/x/space/acc/info?mid=${bid}`
   return axios
     .get(url)
-    .then(res => res.data);
-};
+    .then(res => res.data)
+}
 
 export const getLiveStatusFromResponse = (res: BilibiliLiveStatusResponse, nickname: string | undefined): BilibiliLiveStatus => {
-  const name = nickname || res.data.name;
-  const isLive = res.data.live_room.liveStatus === 1;
+  const name = nickname ?? res.data.name
+  const isLive = res.data.live_room.liveStatus === 1
   if (isLive) {
-    const url = res.data.live_room.url;
-    return { name, isLive, url };
+    const { url } = res.data.live_room
+    return { name, isLive, url }
   }
-  return { name, isLive };
-};
+  return { name, isLive }
+}
 
 export const displayStatusBar = (statusBarItem: vscode.StatusBarItem, liveStatus: BilibiliLiveStatus) => {
   if (liveStatus.isLive) {
-    statusBarItem.text = `--${liveStatus.name}正在直播--`;
-    statusBarItem.tooltip = "前往直播间";
+    statusBarItem.text = `--${liveStatus.name}正在直播--`
+    statusBarItem.tooltip = "前往直播间"
     statusBarItem.command = {
       title: "To Liveroom",
-      command: 'vscode.open',
+      command: "vscode.open",
       arguments: [vscode.Uri.parse(liveStatus.url)]
-    };
-    statusBarItem.show();
+    }
+    statusBarItem.show()
   } else {
-    statusBarItem.hide();
+    statusBarItem.hide()
   }
-};
-
-
+}
 
 // export const getLiveroomUrl = (id: number) => {
 //   return `https://live.bilibili.com/${id}`;

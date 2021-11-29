@@ -1,14 +1,10 @@
 {
   "name": "asoul-notifications",
   "displayName": "A-SOUL 提醒小助手",
-  "description": "A-SOUL 成员新动态提醒, 直播状态提醒",
   "version": "0.6.4",
+  "description": "A-SOUL 成员新动态提醒, 直播状态提醒",
   "publisher": "JiangYan",
   "icon": "logo.png",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/luooooob/vscode-asoul-notifications.git"
-  },
   "keywords": [
     "asoul",
     "bilibili",
@@ -18,6 +14,10 @@
     "乃琳",
     "珈乐"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luooooob/vscode-asoul-notifications.git"
+  },
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -92,8 +92,12 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint .",
     "test": "node ./out/test/runTest.js"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "node-cron": "^3.0.0"
   },
   "devDependencies": {
     "@luooooob/eslint-config": "^0.5.0",
@@ -108,9 +112,5 @@
     "typescript": "^4.5.2",
     "vsce": "^2.3.0",
     "vscode-test": "^1.5.2"
-  },
-  "dependencies": {
-    "axios": "^0.24.0",
-    "node-cron": "^3.0.0"
   }
 }
