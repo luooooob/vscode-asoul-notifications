@@ -21,9 +21,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16.x
+          node-version: 17.x
+      - name: Install pnpm
+        run: npm i -g pnpm
       - name: Install dependencies
-        run: npm install
+        run: pnpm i
       - name: Run test on linux
         if: runner.os == 'Linux'
         run: xvfb-run -a npm test
