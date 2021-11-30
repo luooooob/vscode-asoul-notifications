@@ -16,10 +16,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 17.x
-      - name: Install pnpm
-        run: npm i -g pnpm
       - name: Install dependencies
-        run: pnpm i
+        run: npm i
       - name: Run Publish
         if: success()
         run: npx vsce publish
