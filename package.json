@@ -88,15 +88,16 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
     "lint": "eslint .",
-    "test": "node ./out/test/runTest.js"
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "watch": "npm run esbuild-base -- --sourcemap",
+    "test": "tsc -p ./ && node ./out/test/runTest.js"
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "esbuild": "^0.14.0",
     "node-cron": "^3.0.0"
   },
   "devDependencies": {
