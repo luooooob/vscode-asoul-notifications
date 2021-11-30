@@ -15,9 +15,9 @@ export const activate = (context: vscode.ExtensionContext) => {
   const bilibiliLiveStatusNotificationsEnabled = configuration.get("bilibiliLiveStatus.enabled", false)
   const douyinVideosNotificationsEnabled = configuration.get("douyinVideos.enabled", false)
 
-  const bilibiliDynamicsCronExpression = "*/2 * * * *"
-  const bilibiliLiveStatusCronExpression = "*/2 * * * *"
-  const douyinVideosCronExpression = "*/2 * * * *"
+  const bilibiliDynamicsCronExpression = "*/30 * * * * *"
+  const bilibiliLiveStatusCronExpression = "*/30 * * * * *"
+  const douyinVideosCronExpression = "*/30 * * * * *"
 
   const bilibiliUsers: BilibiliUser[] = asoulMembers
     .reduce((users, { bilibiliId, nickname }) => {
@@ -35,17 +35,17 @@ export const activate = (context: vscode.ExtensionContext) => {
     }, [] as DouyinUser[])
 
   const bilibiliDynamicsNotificationsTask = cron.schedule(bilibiliDynamicsCronExpression, () => {
+    console.log(Date.now().toLocaleString())
     bilibiliUsers.map(async ({ bilibiliId, nickname }) => {
       try {
         const oldDynamicIdsKey = `old-dynamic-ids-${bilibiliId}`
         const res = await bilibiliDynamics.requestDynamics(bilibiliId)
         const oldDynamicIds = context.globalState.get<string[]>(oldDynamicIdsKey) ?? []
-        const newDynamics = bilibiliDynamics
-          .getDynamicsFromResponse(res, nickname)
-          .filter(({ dynamicId }) => oldDynamicIds.length > 0 && !oldDynamicIds.includes(dynamicId))
+        const currentDynamics = bilibiliDynamics.getDynamicsFromResponse(res, nickname)
+        const newDynamics = currentDynamics.filter(({ dynamicId }) => oldDynamicIds.length > 0 && !oldDynamicIds.includes(dynamicId))
         newDynamics.forEach(({ message, commands }) => createNotification(message, ...commands))
-        const newDynamicIds = newDynamics.map(({ dynamicId }) => dynamicId)
-        context.globalState.update(oldDynamicIdsKey, [...oldDynamicIds, ...newDynamicIds])
+        const currentDynamicIds = currentDynamics.map(({ dynamicId }) => dynamicId)
+        context.globalState.update(oldDynamicIdsKey, [...oldDynamicIds, ...currentDynamicIds])
       } catch (err) {
         console.log(err)
       }
@@ -76,12 +76,11 @@ export const activate = (context: vscode.ExtensionContext) => {
         const oldVideoIdsKey = `old-video-ids-${douyinId}`
         const res = await douyinVideos.requestVideos(douyinId)
         const oldVideoIds = context.globalState.get<string[]>(oldVideoIdsKey) ?? []
-        const newVideos = douyinVideos
-          .getVideosFromResponse(res, nickname)
-          .filter(({ videoId }) => oldVideoIds.length > 0 && !oldVideoIds.includes(videoId))
+        const currentVideos = douyinVideos.getVideosFromResponse(res, nickname)
+        const newVideos = currentVideos.filter(({ videoId }) => oldVideoIds.length > 0 && !oldVideoIds.includes(videoId))
         newVideos.forEach(({ message, commands }) => createNotification(message, ...commands))
-        const newVideoIds = newVideos.map(({ videoId }) => videoId)
-        context.globalState.update(oldVideoIdsKey, [...oldVideoIds, ...newVideoIds])
+        const currentVideoIds = currentVideos.map(({ videoId }) => videoId)
+        context.globalState.update(oldVideoIdsKey, [...oldVideoIds, ...currentVideoIds])
       } catch (err) {
         console.log(err)
       }
