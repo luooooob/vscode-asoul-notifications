@@ -35,7 +35,6 @@ export const activate = (context: vscode.ExtensionContext) => {
     }, [] as DouyinUser[])
 
   const bilibiliDynamicsNotificationsTask = cron.schedule(bilibiliDynamicsCronExpression, () => {
-    console.log(Date.now().toLocaleString())
     bilibiliUsers.map(async ({ bilibiliId, nickname }) => {
       try {
         const oldDynamicIdsKey = `old-dynamic-ids-${bilibiliId}`
