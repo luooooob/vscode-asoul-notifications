@@ -97,7 +97,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "esbuild": "^0.14.8",
+    "esbuild": "^0.15.3",
     "node-cron": "^3.0.0"
   },
   "devDependencies": {
