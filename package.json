@@ -98,14 +98,14 @@
   "dependencies": {
     "axios": "^0.24.0",
     "esbuild": "^0.14.8",
-    "node-cron": "^3.0.0"
+    "node-cron": "^3.0.2"
   },
   "devDependencies": {
     "@luooooob/eslint-config": "^0.5.0",
     "@types/glob": "^7.2.0",
     "@types/mocha": "^8.2.2",
     "@types/node": "17.x",
-    "@types/node-cron": "^3.0.0",
+    "@types/node-cron": "^3.0.3",
     "@types/vscode": "^1.60.0",
     "eslint": "^8.5.0",
     "glob": "^7.2.0",
